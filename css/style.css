@@ -1,0 +1,61 @@
+
+	h1 {
+		background-color : yellow;
+	}
+	
+	.heading {
+		color : red;
+		font-weight : bold;
+	}
+	
+	
+	
+	input {
+		background : grey;
+	}
+	
+	#div1 {
+		display : block;
+		float : left;
+		margin: 20px;
+	}
+	#div2 {
+		position:absolute;
+		top:85;
+		right:280;
+	}
+	#div3 {
+		margin-left: 120px;
+	}
+		
+	#div3 #p2 {
+		font-family : "Times New Roman", Georgia, Serif;
+		font-style: italic;
+		font-size: 200%;
+		display: inline;
+		margin: 20px;
+	}
+	
+	@keyframes myChange {
+		from {
+			height: 100px;
+		} to {
+			height: 0;
+		}
+	}
+	
+	div.ng-hide {
+		animation: 0.5s myChange;
+	}
+	
+	#div3 #p1  {
+		font-size: x-small;
+		display: inline-block;
+		margin-top: 30px;
+	}
+	
+	img {
+		margin-left: 100px;
+		height : 300px;
+		width : 300px;
+	}

@@ -1,0 +1,48 @@
+<html ng-app="todoApp">
+
+    <head>
+        <title>Todo App</title>
+        <script src='script/angular.js'></script>
+        <script src='script/app.js'></script>
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <h1>Todo App</h1>
+
+        <div ng-controller="TodoCtrl as ctrl">
+
+            <div id="div1">
+
+                <p class="heading">Add a Todo:</p>
+                <input type="text" ng-model="ctrl.newTodoItem">
+				<button ng-click="ctrl.addNewItem()">Add</button>
+			</div>
+                
+			<div id="div3">
+				<p id="p1">I don't need you: <input type="checkbox" ng-model="checked"></p><br>
+				<p id="p2" ng-hide="checked">Let me remember what you have todo</p><br>
+				<img src="images/happy.jpg" alt="Smiley face" ng-hide="checked">
+				<img src="images/angry.jpg" alt="Smiley face" ng-show="checked">
+			</div>
+			
+            <div id="div2">
+                <p class="heading">Your Todos:</p>
+                <button ng-hide="ctrl.editMode" ng-click="ctrl.triggerEditMode()">Edit</button>
+                <button ng-show="ctrl.editMode" ng-click="ctrl.triggerEditMode()">Done</button>
+                <ol>
+                    <li ng-repeat="todo in ctrl.todolist track by $index">
+                        <span ng-hide="ctrl.editMode" ng-bind="todo"></span> 
+                        <input ng-model="todo" ng-show="ctrl.editMode" type="text"></input>
+                        <button ng-hide="ctrl.editMode" ng-click="ctrl.deleteTodo($index)">Delete</button>
+                    </li>
+                </ol>
+            </div>
+
+        </div>
+        
+    </body>
+<!-- every element of an array must be unique if you want it to loop using ng-repeat. To allow duplicates use "track by $index" in ng-repeat. It tells ng-repeat to identify elements of the array using index instead of the element itself. And as index is unique for each element of array (index in set by angularjs automatically), thus ng-repeat is now able to loop through array containing duplicate values.
+OR
+Stores each element in the array as object (name value pair) and thus you can insert duplicate values -->
+</html>
